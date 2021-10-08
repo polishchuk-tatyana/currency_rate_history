@@ -13,3 +13,8 @@ What can the user do on the application
 -----------------------------------
 * User can see a page with a chart of stored currency rates.
 * User can set rate and date and save entered rate for specific date.
+
+What tools was used to create the application
+-----------------------------------
+
+The application is written in the python language based on Django framework for creating web-application. 
