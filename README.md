@@ -1,6 +1,6 @@
 Task - Currency rate history
 =====================
-*** Web-application that allows you to save currency rates and display chart based on this data. There is ***
+***Web-application that allows you to save currency rates and display chart based on this data. There is***
 ---
 Еhe page shows:
 ---
