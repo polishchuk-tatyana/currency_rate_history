@@ -17,5 +17,4 @@ What can the user do on the application
 What tools was used to create the application
 -----------------------------------
 
-The application is written in the python language based on `Django framework` for creating web-application. `The jQuery framework` and `JavaScript` language was used to design additional components: chart and validation. Page layout was used JavaScript, CSS, HTML using Bootstrap and Materialize frameworks.
-/
+The application back-end is written in the python language based on `Django framework` for creating web-application. `The jQuery framework` and `JavaScript` language was used to design additional components: chart and validation. Page layout was used `JavaScript, CSS, HTML` using `Bootstrap` and `Materialize` frameworks.
