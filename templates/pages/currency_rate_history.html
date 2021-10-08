@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Rate</title>
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}" type="text/css">
+</head>
+<body>
+
+<nav id="nav" style="background-color: #01395e; ">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Currency Rate History</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><img src="{% static 'images/icon.png' %}" width="70" height="65" class="d-inline-block align-top"
+                     alt=""></li>
+        </ul>
+    </div>
+</nav>
+<div class="general-container">
+    <div class="container">
+        </br>
+        <form class="shadow-lg p-3 mb-5 bg-white rounded">
+            <h5><p>1.00 Ukrainian Hryvnia = </p></h5>
+            <b>
+                <h4><p>{{ chart_item.rateUAH }} US Dollars</p></h4>
+            </b>
+
+        </form>
+        <blockquote class="blockquote-reverse">
+            <p>Ukrainian Hryvnia to US Dollar conversion — Last updated {{ chart_item.date }}</p>
+        </blockquote>
+        <figure class="highcharts-figure">
+            <div id="id_container" class="container">
+                <input type="hidden" id="chart_id" name="chart_id" value="{{ chart_currency_rate }}">
+            </div>
+        </figure>
+        <form id="main_form" method="POST" class="shadow-lg p-3 mb-5 bg-white rounded"> {% csrf_token %}
+            <input type="hidden" id="json_id" name="json_id" value="{{ json_chart }}">
+            <h3>You can input currency rate for now</h3>
+            <div class="row gy-5">
+                <div class="col-6">
+                    <div class="p-3 border bg-light">
+                        <div class="form-group has-feedback nameBlock">
+                            <label for="id_rateUAH" class="control-label">Input the rate Hryvnia</label>
+                            <input type="text" class="form-control numbersOnly" id="id_rateUAH" name="rateUAH"
+                                   placeholder="0.0000000">
+                            <span class="helpRate"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </br></br>
+            <div class="row gy-5">
+                <div class="col-6">
+                    <div class="p-3 border bg-light">
+                        <div class="form-group has-feedback dateBlock">
+                            <label for="id_date" class="control-label">Input the date</label>
+                            <input type="datetime-local" class="form-control" id="id_date" name="date" lang="en">
+                            <span class="helpDate"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </br>
+            <input type="submit" class="btn btn-primary" value="Save" id="submit_b">
+        </form>
+    </div>
+    </br></br>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2021 Currency Rate History
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="{% static 'scripts/jQuery_Validation.js' %}"></script>
+<script src="{% static 'scripts/chart.js' %}"></script>
+</body>
+</html>
